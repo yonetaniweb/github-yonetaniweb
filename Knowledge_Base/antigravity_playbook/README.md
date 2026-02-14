@@ -22,7 +22,7 @@ Antigravity（VS Code + AI）で構築した仕組みを、他の人に伝承す
 | 03 | [[03_github_vercel_deployment]] | GitHubとVercelを使ったデプロイ自動化 |
 | 04 | [[04_antigravity_git_config]] | Antigravity専用のGit設定とトラブルシュート |
 | 05 | [[05_youtube_automation]] | YouTube動画制作の自動化ワークフロー |
-| 06 | [[06_dual_ecosystems_structure]] | Dual Ecosystemsとナンバリングシステムの概要 |
+| 06 | [[06_web_production_workflow_structure]] | 新規・月額案件のフォルダ運用ルール |
 
 > 💡 新しいマニュアルが追加されたら、この表も更新されます。
 
