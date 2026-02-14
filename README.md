@@ -5,8 +5,9 @@
 ## 📂 Structure
 
 - **`.obsidian`**: 設定・プラグイン・テーマ同期用
-- **`Company_Work`**: 業務・プロジェクト用エコシステム
-  - (詳細な構成は `Company_Work/00_Project_Dashboard.md` などを参照)
+- **`01.new`**: 新規開発・制作中のプロジェクト
+- **`02.monthly-contract`**: 月額保守・運用の継続案件
+- **`Knowledge_Base`**: マニュアル・技術仕様書・テンプレート（`20_Knowledge_Base`）
 
 ## 🤖 AI Configuration Files
 

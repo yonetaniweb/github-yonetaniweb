@@ -19,6 +19,10 @@ Antigravity（VS Code + AI）で構築した仕組みを、他の人に伝承す
 |-----|----------|------|
 | 01 | [[01_github_sync]] | GitHub同期で複数PCを連携する方法 |
 | 02 | [[02_remotion_setup]] | Remotion動画制作環境の構築と運用ルール |
+| 03 | [[03_github_vercel_deployment]] | GitHubとVercelを使ったデプロイ自動化 |
+| 04 | [[04_antigravity_git_config]] | Antigravity専用のGit設定とトラブルシュート |
+| 05 | [[05_youtube_automation]] | YouTube動画制作の自動化ワークフロー |
+| 06 | [[06_dual_ecosystems_structure]] | Dual Ecosystemsとナンバリングシステムの概要 |
 
 > 💡 新しいマニュアルが追加されたら、この表も更新されます。
 
