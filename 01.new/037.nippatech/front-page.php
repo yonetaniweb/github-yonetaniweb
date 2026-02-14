@@ -1,0 +1,284 @@
+<?php get_header(); ?>
+
+<main>
+    <section class="hero-section">
+        <div class="hero-section__content contents text-center">
+            <h1 class="fs-150p">ここに動画が表示されます</h1>
+        </div>
+    </section>
+
+    <section id="news" class="section-padding bg-light">
+        <div class="contents">
+            <h2 class="section-title">NEWS & TOPICS</h2>
+            <div class="news-list mt-5">
+                <?php
+                $args = array(
+                    'post_type' => 'news',
+                    'posts_per_page' => 3
+                );
+                $the_query = new WP_Query($args);
+                if ($the_query->have_posts()):
+                    while ($the_query->have_posts()):
+                        $the_query->the_post();
+                        ?>
+                        <div class="news-item">
+                            <time datetime="<?php the_time('Y-m-d'); ?>">
+                                <?php the_time('Y.m.d'); ?>
+                            </time>
+                            <a href="<?php the_permalink(); ?>">
+                                <?php the_title(); ?>
+                            </a>
+                        </div>
+                        <?php
+                    endwhile;
+                    wp_reset_postdata();
+                else:
+                    ?>
+                    <div class="news-item">
+                        <p>お知らせはありません。</p>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <div class="text-center mt-5">
+                <a href="<?php echo esc_url(home_url('/')); ?>news" class="btn btn-outline-main-color">お知らせ一覧を見る</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="strengths" class="section-padding bg-dark">
+        <div class="contents">
+            <h2 class="section-title">ニッパテックが選ばれる理由</h2>
+            <div class="strengths-grid mt-5">
+                <div class="strength-item">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/icon-quality.svg" alt="最高品質のアイコン"
+                        class="strength-item__icon">
+                    <h4 class="mt-4 fs-120p">妥協なき最高品質</h4>
+                    <p class="mt-2">厳選した素材と精密な加工技術で、最高のパフォーマンスを保証いたします。</p>
+                    <a href="#" class="read-more mt-3">製品事例 &gt;</a>
+                </div>
+                <div class="strength-item">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/icon-specialist.svg" alt="スペシャリストのアイコン"
+                        class="strength-item__icon">
+                    <h4 class="mt-4 fs-120p">スペシャリスト集団の技術</h4>
+                    <p class="mt-2">長年の経験と革新的なアイデアを持つ技術者が、お客様の課題を解決に導きます。</p>
+                    <a href="#" class="read-more mt-3">製品ができるまで &gt;</a>
+                </div>
+                <div class="strength-item">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/icon-customer.svg" alt="お客様第一主義のアイコン"
+                        class="strength-item__icon">
+                    <h4 class="mt-4 fs-120p">お客様第一主義</h4>
+                    <p class="mt-2">一貫生産で迅速・低コストを実現！柔軟なカスタマイズもご提案いたします。</p>
+                    <a href="#" class="read-more mt-3">企業理念 &gt;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="network" class="section-padding">
+        <div class="contents text-center">
+            <h2 class="section-title">世界にまたがるネットワーク</h2>
+            <p class="mt-5 fs-110p">
+                日本のビッグ企業の大型輸出プラントや海外の鉄鋼をはじめ<br class="pc-on">
+                あらゆる金属加工プラントにも多くのニッパテック製品が使われています。
+            </p>
+        </div>
+    </section>
+
+    <section id="cases" class="section-padding bg-light">
+        <div class="contents">
+            <h2 class="section-title">数字で見る、私たちの実績</h2>
+            <div class="infographics-grid mt-6">
+                <!-- 創業年 -->
+                <div class="infographic-item">
+                    <p class="infographic-item__label">創業 1921年</p>
+                    <div class="infographic-item__number-wrapper">
+                        <!-- 
+                            変更点: 
+                            data-target="current-year" -> 自動で今年の年数を取得します
+                            data-comma="false" -> カンマを入れない設定にします
+                            -->
+                        <span class="infographic-item__number" data-target="current-year" data-start="1921"
+                            data-comma="false">1921</span>
+                        <span class="infographic-item__unit">年</span>
+                    </div>
+                    <p class="infographic-item__caption">半世紀以上に渡り、日本のものづくりを支え続けています。</p>
+                </div>
+
+                <!-- 取引継続率（変更なし） -->
+                <div class="infographic-item">
+                    <p class="infographic-item__label">取引継続率</p>
+                    <div class="infographic-item__number-wrapper">
+                        <span class="infographic-item__number" data-target="98">0</span>
+                        <span class="infographic-item__unit">%</span>
+                    </div>
+                    <p class="infographic-item__caption">一度お取引いただいたお客様から、長く信頼されています。</p>
+                </div>
+
+                <!-- 製品寿命（変更なし） -->
+                <div class="infographic-item">
+                    <p class="infographic-item__label">製品寿命向上実績</p>
+                    <div class="infographic-item__number-wrapper">
+                        <span class="infographic-item__number" data-target="300">0</span>
+                        <span class="infographic-item__unit">%~</span>
+                    </div>
+                    <p class="infographic-item__caption">最適な素材と熱処理で、従来品を超える耐久性を実現。</p>
+                </div>
+
+                <!-- 年間製造数 -->
+                <div class="infographic-item">
+                    <p class="infographic-item__label">年間製造数</p>
+                    <div class="infographic-item__number-wrapper">
+                        <!-- data-target="50000" のままでOK。JSでカンマを付けます -->
+                        <span class="infographic-item__number" data-target="50000">0</span>
+                        <span class="infographic-item__unit">点以上</span>
+                    </div>
+                    <p class="infographic-item__caption">多種多様なニーズに、高い生産能力でお応えします。</p>
+                </div>
+            </div>
+
+            <div class="case-studies-wrapper mt-6">
+                <h2 class="section-title">課題解決事例</h2>
+                <div class="case-studies-grid-alt mt-5">
+                    <div class="case-study-item-alt">
+                        <div class="case-study-item-alt__header">
+                            <span class="case-study-item-alt__industry">製鉄業界</span>
+                            <h4 class="case-study-item-alt__title">生産ライン停止時間を大幅削減</h4>
+                        </div>
+                        <div class="case-study-item-alt__body">
+                            <dl>
+                                <dt>お客様の課題</dt>
+                                <dd>高温環境下での刃物の摩耗が早く、頻繁な交換による生産ラインの停止が悩みの種でした。これにより、納期遅延やコスト増が課題となっていました。</dd>
+                                <dt>弊社のご提案</dt>
+                                <dd>独自の耐熱超合金素材と、最先端の熱処理技術を組み合わせた高耐久刃物をご提案。高温下でも摩耗を最小限に抑え、長寿命化を実現しました。</dd>
+                                <dt>導入後の成果</dt>
+                                <dd>刃物の寿命が従来の3.5倍に向上し、交換頻度が激減。ライン停止時間は年間80%削減され、生産効率が飛躍的に向上。お客様からは「コスト削減と納期遵守が同時に実現できた」と高い評価をいただきました。
+                                </dd>
+                            </dl>
+                            <div class="case-study-item-alt__appeal">
+                                <p class="appeal-title">アピールポイント</p>
+                                <p>このソリューションは、高温環境に悩む他業界（例：〇〇加工、□□□製造）にも応用可能。貴社の生産性向上を強力にサポートいたします！</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-study-item-alt">
+                        <div class="case-study-item-alt__header">
+                            <span class="case-study-item-alt__industry">建機メーカー</span>
+                            <h4 class="case-study-item-alt__title">品質安定でブランド力を強化</h4>
+                        </div>
+                        <div class="case-study-item-alt__body">
+                            <dl>
+                                <dt>お客様の課題</dt>
+                                <dd>特殊形状部品の加工精度のバラつきが大きく、不良率の高さが課題でした。これが製品全体の信頼性低下やブランドイメージへの悪影響を招いていました。</dd>
+                                <dt>弊社のご提案</dt>
+                                <dd>創業から半世紀以上磨き上げた精密加工技術を活用し、部品形状に最適化した専用スマート治具を自社開発。AI制御によるμm単位の超精密加工プロセスを導入し、品質の安定化を図りました。
+                                </dd>
+                                <dt>導入後の成果</dt>
+                                <dd>加工精度が従来比50%向上、不良率は1/10以下に激減。製品の信頼性が向上し、エンドユーザーからの満足度が飛躍的に向上。お客様のブランドは「高品質の代名詞」として市場でさらに評価され、受注増にもつながりました。
+                                </dd>
+                            </dl>
+                            <div class="case-study-item-alt__appeal">
+                                <p class="appeal-title">アピールポイント</p>
+                                <p>この技術は、複雑形状部品の加工に悩むあらゆる業界（例：○○○、□□□□）で活用可能。貴社の製品価値と市場競争力を最大化します！</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-study-solution-link">
+                    <a href="#" class="btn-banner">NH処理 × NS3/NS3C材 産業用刃物ソリューション</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="section-padding bg-dark">
+        <div class="contents">
+            <h2 class="section-title">プロが使う専用ツール</h2>
+            <div class="product-categories-grid mt-5">
+                <a href="#" class="product-category-item">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/product-machine-parts.jpg" alt="機械部品"
+                        loading="lazy">
+                    <div class="product-category-item__info">
+                        <h5 class="fs-120p">機械部品</h5>
+                        <p>ニッパテックの優れた耐久性を持つ機械部品・刃物の製作ノウハウを活かし、製鉄圧延・鍛圧・工業・土木建設機械など幅広い機械部品を製造しています。</p>
+                    </div>
+                </a>
+                <a href="#" class="product-category-item">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/product-metal-blades.jpg" alt="金属剪断用刃物"
+                        loading="lazy">
+                    <div class="product-category-item__info">
+                        <h5 class="fs-120p">金属剪断用刃物</h5>
+                        <p>厳選素材と高度な品質管理で製造したシャーナイフ・スリッターナイフは、優れた切れ味と長寿命で金属加工の効率を高めます。</p>
+                    </div>
+                </a>
+                <a href="#" class="product-category-item">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/product-waste-blades.jpg"
+                        alt="廃棄物破砕用刃物" loading="lazy">
+                    <div class="product-category-item__info">
+                        <h5 class="fs-120p">廃棄物破砕用刃物</h5>
+                        <p>厳選素材と厳格な品質管理で作られた破砕用刃物は、抜群の切れ味と耐久性で廃棄物処理の効率を向上させます。</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="philosophy" class="section-padding bg-light">
+        <div class="contents">
+            <h2 class="section-title">モノづくり、そしてヒトづくり</h2>
+            <div class="philosophy-content mt-5">
+                <div class="philosophy-content__text">
+                    <p class="fs-110p">
+                        弊社では、最高の製品を生み出すためには、それを支える「ヒト」の成長が不可欠だと考えています。長年の経験を持つ熟練技術者から若手まで、全ての従業員が能力を最大限に発揮できる環境を整備し、技術の継承と革新を追求しています。
+                    </p>
+                    <p class="mt-3 fs-110p">お客様の期待を超える真の価値は、こうした「ヒトづくり」から生まれると信じています。</p>
+                    <a href="#" class="btn btn-outline-main-color mt-4">経営理念について詳しく見る</a>
+                </div>
+                <div class="philosophy-content__image">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/philosophy-craftsmanship.jpg"
+                        alt="職人技とチームワーク" loading="lazy">
+                </div>
+            </div>
+            <div class="specialist-grid mt-6">
+                <div class="specialist-item">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/specialist-taro.jpg"
+                        alt="福山営業所 所長 K.Tさん" class="specialist-item__photo">
+                    <h5 class="mt-3 fs-110p">K.Tさん</h5>
+                    <p class="specialist-item__title">福山営業所 所長</p>
+                    <p class="mt-2">「常に最高精度を追求し、限界に挑戦しています。」</p>
+                </div>
+                <div class="specialist-item">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/specialist-hanako.jpg"
+                        alt="生産管理部 研磨 M.Fさん" class="specialist-item__photo">
+                    <h5 class="mt-3 fs-110p">M.Fさん</h5>
+                    <p class="specialist-item__title">生産管理部 研磨</p>
+                    <p class="mt-2">「お客様に安心と信頼をお届けするため、厳格な品質基準を守ります。」</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="recruit" class="section-padding bg-dark">
+        <div class="recruit-bg">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/recruit-bg.jpg" alt="採用情報セクションの背景画像"
+                loading="lazy">
+        </div>
+        <div class="contents recruit-content">
+            <h2 class="section-title">採用情報</h2>
+            <p class="mt-5 fs-110p">
+                世界に誇る技術を、次の世代へ。<br>
+                ニッパテックは、あなたの情熱と挑戦を待っています。
+            </p>
+            <a href="#" class="btn btn-main-color mt-4">このような方を求めています</a>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding text-center bg-light">
+        <div class="contents">
+            <h2 class="section-title">あなたのビジョンに、<br class="pc-on">最適なソリューションを。</h2>
+            <p class="mt-3 fs-110p">製品に関するご質問、特殊な加工のご相談など、お気軽にお問い合わせください。</p>
+            <a href="#" class="btn btn-main-color mt-5">お問い合わせフォーム</a>
+        </div>
+    </section>
+</main>
+
+<?php get_footer(); ?>
