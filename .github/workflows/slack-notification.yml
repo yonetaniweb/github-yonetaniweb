@@ -1,0 +1,25 @@
+name: Notify Slack on Deployment
+
+on:
+  deployment_status:
+
+jobs:
+  notify:
+    # デプロイが成功（success）した場合のみ実行
+    if: github.event.deployment_status.state == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send notification to Slack
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_CHANNEL: general # 必要に応じて変更してください
+          SLACK_COLOR: '#32CD32' # Lime Green
+          SLACK_ICON: https://img.icons8.com/color/48/000000/ok--v1.png
+          SLACK_TITLE: "【案件名】github-yonetaniweb"
+          SLACK_MESSAGE: |
+            〇〇の仮アップが完了しましたので、ご確認お願い致します。
+            
+            <${{ github.event.deployment_status.target_url }}|👉 サイトを確認する (Click)>
+          SLACK_USERNAME: Vercel Deploy Bot
+          MSG_MINIMAL: true # 不要な情報を省く
