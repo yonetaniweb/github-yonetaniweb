@@ -18,8 +18,8 @@ jobs:
           SLACK_ICON: https://img.icons8.com/color/48/000000/ok--v1.png
           SLACK_TITLE: "【案件名】github-yonetaniweb"
           SLACK_MESSAGE: |
-            〇〇の仮アップが完了しましたので、ご確認お願い致します。
+            仮アップが完了しましたので、ご確認お願い致します。
             
-            <https://github-yonetaniweb.vercel.app/|👉 サイトを確認する (Click)>
+            ${{ github.event.deployment_status.target_url }}
           SLACK_USERNAME: Vercel Deploy Bot
           MSG_MINIMAL: true
